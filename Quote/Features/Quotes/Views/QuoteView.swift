@@ -12,14 +12,23 @@ struct QuoteView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
+            Text("\"\(quote.quote)\"")
+                .fontWeight(.bold)
+            Text("Character: \(quote.character)")
             HStack {
                 Image(systemName: "tv")
                     .font(.system(size: 12, weight: .black))
                 Text(quote.anime)
             }
-            Text("Character: \(quote.character)")
-            Text("Quote: \(quote.quote)")
         }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.randomColor.opacity(0.1))
+        )
+        .padding(.vertical, 3)
+        .padding(.horizontal, 12)
     }
 }
 

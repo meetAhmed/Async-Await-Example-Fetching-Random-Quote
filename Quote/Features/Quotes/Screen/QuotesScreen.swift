@@ -21,9 +21,11 @@ struct QuotesScreen: View {
             if vm.quotes.isEmpty {
                 LoadingView(text: "Fetching Quotes")
             } else {
-                List {
-                    ForEach(vm.quotes, id: \.self) { quote in
-                        QuoteView(quote: quote)
+                ScrollView {
+                    VStack {
+                        ForEach(vm.quotes, id: \.self) { quote in
+                            QuoteView(quote: quote)
+                        }
                     }
                 }
             }

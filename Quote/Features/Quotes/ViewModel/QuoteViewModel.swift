@@ -24,7 +24,7 @@ final class QuotesViewModelImpl: QuotesViewModel {
         do {
             self.quotes = try await service.fetchRandomQuotes()
         } catch {
-            print(error)
+            self.quotes = [Quote(anime: "Error", character: "\(error)", quote: "Error")]
         }
     }
 }
